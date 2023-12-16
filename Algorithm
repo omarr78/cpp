@@ -279,4 +279,31 @@ string "cdab"   select d
 string "ab"  select b
 so the ans will be "ddb"
 
+    string s;
+    cin >> s;
+    int n = s.size();
+    vector<char> large(n);
+    vector<int> idx(n);
+    char mx = '0';
+    int j = n + 5;
+    for (int i = n - 1; i >= 0; --i) {
+        if (s[i] >= mx) {
+            mx = s[i];
+            j = i;
+        }
+        large[i] = mx;
+        idx[i] = j;
+    }
+//    for(auto i : large)cout<<i<<" ";
+//    cout<<"\n";
+//    for(auto i : idx)cout<<i<<" ";
+    int pointer = 0;
+    string ans = "";
+    while (pointer < n)
+    {
+        ans.push_back(large[pointer]);
+        pointer = idx[pointer]+1;
+    }
+    cout<<ans;
+
 
