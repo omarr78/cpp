@@ -279,8 +279,7 @@ string "cdab"   select d
 string "ab"  select b
 so the ans will be "ddb"
 
-    string s;
-    cin >> s;
+   string max_substring(string s){
     int n = s.size();
     vector<char> large(n);
     vector<int> idx(n);
@@ -294,9 +293,6 @@ so the ans will be "ddb"
         large[i] = mx;
         idx[i] = j;
     }
-//    for(auto i : large)cout<<i<<" ";
-//    cout<<"\n";
-//    for(auto i : idx)cout<<i<<" ";
     int pointer = 0;
     string ans = "";
     while (pointer < n)
@@ -304,6 +300,7 @@ so the ans will be "ddb"
         ans.push_back(large[pointer]);
         pointer = idx[pointer]+1;
     }
-    cout<<ans;
+    return ans;
+}
 
 
