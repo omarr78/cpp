@@ -304,3 +304,23 @@ so the ans will be "ddb"
 }
 
 
+- if you have a target sum of two number and you want to return the index of two sum that is equal target sum
+
+    vector<int> twoSum(vector<int>& nums, int target)
+    {
+        map<int, int> mp;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            int t = target - nums[i];
+            if (mp.find(t) != mp.end())
+            {
+                return {mp[t], i};
+            }
+            else {
+                mp[nums[i]] = i;
+            }
+        }
+
+        // Return an empty vector if no solution is found
+        return {};
+    }
