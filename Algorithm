@@ -324,3 +324,46 @@ so the ans will be "ddb"
         // Return an empty vector if no solution is found
         return {};
     }
+
+
+
+
+--  You are given an array of integers. Your task is to create pairs of them, such that every created pair has the same sum.
+This sum is NOT specified, but the number of created pairs should be the maximum possible. Each array element may belong to one pair only.
+
+
+here is a code
+
+void out() {
+
+    int n;cin>>n;
+    vector<int>a(n);
+    set<int>st;
+    for (int i = 0; i < n; ++i) {
+        cin>>a[i];
+        st.insert(a[i]);
+        f[a[i]]++;
+    }
+    vector<int>temp;
+    for(auto i:st){
+        temp.push_back(i);
+    }
+    int mx = 0;
+    int less = *min_element(a.begin(),a.end());
+    int great = *max_element(a.begin(),a.end());
+    for(int sum= 2*less;sum<= 2 * great;sum++)
+    {
+        int pair = 0;
+        for(int i=0;i<temp.size();i++)
+        {
+            if(temp[i] >= ((sum+1)/2))break;
+            int x = sum - temp[i];
+            pair += min(f[temp[i]],f[x]);
+        }
+        if(sum % 2 == 0){
+            pair+= f[sum/2]/2;
+        }
+        mx = max(mx,pair);
+    }
+    cout<<mx;
+}
