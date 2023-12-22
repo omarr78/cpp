@@ -367,3 +367,34 @@ void out() {
     }
     cout<<mx;
 }
+
+
+
+
+
+---- if you have query each query will give you a from L to R range and L and R up to 1e9
+    then we 
+    1- save it in map
+    2- copy it in a pair array
+    3- prefix sum array in the second pair
+    4- find the first number less than or equal to R with binary search
+    5- find the first number less than or equal to L-1 
+
+    here is the code 
+
+    for(int i = 1 ;i<a.size();i++)
+    {
+        a[i].second += a[i-1].second;
+    }
+    while(q--){
+        int l,r;cin>>l>>r;
+        int ret1 = -1,ret2 = -1;
+        ret1 = find_first_less_than(r);
+        ret2 = find_first_less_than(l-1);
+        if(ret1 != -1 && ret2!=-1){
+            cout<<a[ret1].second - a[ret2].second;
+        }
+        else if(ret2 == -1)cout<<a[ret1].second;
+        else if(ret1 == -1)cout<<0;
+        cout<<"\n";
+    }
