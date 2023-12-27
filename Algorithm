@@ -398,3 +398,12 @@ void out() {
         else if(ret1 == -1)cout<<0;
         cout<<"\n";
     }
+
+
+
+ -- if you have a number of summation and want to get the n 
+
+void out() {
+    int n;cin>>n; // n is summation
+    cout<< (int)(-1 + (sqrt(1-4*(-n*2))))/ 2;
+}
