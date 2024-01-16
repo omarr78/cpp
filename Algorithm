@@ -446,3 +446,21 @@ void out()
         cout<<ans[i]<<" ";
     }
 }
+
+
+-- to get xor to specific range  L,R in O(1)
+
+    // prefix xor
+    for (int i = 1; i < n; ++i) {
+        a[i] ^= a[i-1];
+    }
+    // and the  result = ((R) xor (L-1)) 
+    int l,r;cin>>l>>r;
+    l--,r--; // if L and R are 1-based index
+    int res;
+    if(l == 0){
+        res = a[r];
+    }
+    else{
+        res = a[l-1] ^ a[r];
+    }
