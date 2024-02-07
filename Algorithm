@@ -464,3 +464,14 @@ void out()
     else{
         res = a[l-1] ^ a[r];
     }
+
+-- is the number is perfect square 
+
+    bool isPerfectSquare(long double x)
+    {
+        if (x >= 0) {
+            long long sr = sqrt(x);
+            return (sr * sr == x);
+        }
+        return false;
+    }
