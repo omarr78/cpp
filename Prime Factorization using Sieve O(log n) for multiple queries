@@ -1,0 +1,21 @@
+int const N = 1e5+3;
+
+int spf[N];
+
+void seive(){
+    for(int i=1;i < N;i++)spf[i] = i;
+    for (int i = 4; i < N; i += 2)spf[i] = 2;
+    for (int i = 3; i*i < N; ++i) {
+        if(spf[i] == i){
+            for (int j = i * i; j < N; j += i){
+                if(spf[j] == j){
+                    spf[j] = i;
+                }
+            }
+        }
+    }
+}
+
+void out() {
+    seive();
+}
