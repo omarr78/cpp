@@ -252,7 +252,7 @@ int find_first_greater_than(int x){
 }
 
 
-Sieve 
+Sieve n*log(log(n))
 
 vector<bool>primes(1e6+5,1);
     int siz = 1e6;
